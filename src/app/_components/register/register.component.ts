@@ -12,6 +12,7 @@ import {EmailDto} from "../../dto/EmailDto";
 import {InstitutionDto} from "../../dto/InstitutionDto";
 import {Profile} from "../../dto/Profile";
 import {AddressDto} from "../../dto/AddressDto";
+import {promise} from "selenium-webdriver";
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -27,6 +28,9 @@ export class RegisterComponent implements OnInit {
   loading = false;
   submitted = false;
   birthday: string;
+  profilelist : any;
+
+
 
 
   constructor(
@@ -43,10 +47,19 @@ export class RegisterComponent implements OnInit {
 
 
     }
+
+    this.profilelist = [
+      new Profile( "ADMINISTRATOR", "ADMIN",  true),
+      new Profile( "PROFESSIONAL", "EXPERT",  true),
+      new Profile( "SEARCHER", "SEARCHER",  true)
+
+    ];
+
   }
 
   ngOnInit() {
 
+       console.log(this.profilelist);
 
   }
 
@@ -74,24 +87,11 @@ export class RegisterComponent implements OnInit {
 
   register(username: string, password: string,emailDto: string,firstName: string, lastname: string,middlename: string,  institutionCode: string, institutionName : string, profile: string, city: string, postalCode: string, province: string, street: string, streetNumber: string) {
     this.submitted = true;
-    let prof : Profile;
-    if (profile=="admin"){
-      prof = Profile.admin
-    }
 
-    else if (profile=="expert"){
-      prof = Profile.expert
-
-    }
-
-    else{
-      prof = Profile.searcher
-
-    }
+   console.log(profile);
 
 
-
-    let data = new RegistrationClientDTO(new AccountDto(username, password) ,this.birthday, new EmailDto(emailDto), firstName, middlename, lastname, new InstitutionDto(institutionCode, institutionName), prof, new AddressDto(city, postalCode, province, street, Number(streetNumber)))
+    let data = new RegistrationClientDTO(new AccountDto(username, password) ,this.birthday, new EmailDto(emailDto), firstName, middlename, lastname, new InstitutionDto(institutionCode, institutionName), profile, new AddressDto(city, postalCode, province, street, Number(streetNumber)))
 
     this.loading = true;
     this.userService.register(JSON.stringify(data))
@@ -100,17 +100,17 @@ export class RegisterComponent implements OnInit {
         data => {
           this.alertService.success('Registration successful', true);
           console.log(data);
-          if (data["emailExist"]){
-            this.alertService.success(data["emailExist"])
-            this.router.navigate(['/login']);
-          }else if(data["usernameExist"]){
+          if (data["emailExist"]==true){
+            console.log("error");
+            //this.router.navigate(['/login']);
+          }else if(data["usernameExist"]==true){
             this.alertService.success(data["usernameExist"])
-            this.router.navigate(['/login']);
-          }else if(data["profileIsSet"]){
+            //this.router.navigate(['/login']);
+          }else if(data["profileIsSet"]==false){
             this.alertService.success(data["profileIsSet"])
-            this.router.navigate(['/login']);
+            //this.router.navigate(['/login']);
           }else{
-
+            this.router.navigate(['/login']);
           }
         },
         error => {

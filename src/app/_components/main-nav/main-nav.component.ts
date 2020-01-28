@@ -13,8 +13,9 @@ export class MainNavComponent {
   appitems = [
     {
       label: 'E-pod Sante',
+      icon: 'close',
       imageIcon: 'https://www.jobillico.com/medias/logo-entreprise/0/0/exp_logo_7966_fr_2016_09_02_14_49_44.png',
-      link: 'https://www.npmjs.com/package/ng-material-multilevel-menu',
+      link: 'drawer.toggle()',
       externalRedirect: true
     },
     {
@@ -23,47 +24,59 @@ export class MainNavComponent {
       items: [
         {
           label: 'AJOUTER UN UTILISATEUR',
-          link: 'register',
-          icon: 'add_circle_outline'
+          link: '/',
+          icon: 'add_circle_outline',
+
         },
         {
           label: 'LISTE DES UTILISATEURS',
           link: 'register',
           icon: 'filter_list'
         }
+        ,
+        {
+          label: 'AJOUTER UN PROFIL',
+          link: 'profile',
+          icon: 'add_circle_outline'
+        },
+        {
+          label: 'LISTE DES PROFILS',
+          link: '',
+          icon: 'filter_list'
+        }
       ]
     },
     {
       label: 'PARAMETRES D`APPRENTISSAGE  ',
-      icon: '',
+      icon: 'build',
       items: [
         {
-          label: 'AJOUT D`uN MODELE ',
+          label: ' MODELE ',
           link: '/',
-          icon: '',
-          activeIcon: 'favorite',
-          disabled: false,
+          icon: 'add_circle',
+
+
         },
         {
-          label: 'APPRENTISSAGE',
+          label: 'ENTRAINEMENT',
           link: '/item-2-2',
-          icon: '',
-          activeIcon: 'favorite',
+          icon: 'toggle_off',
+
           navigationExtras: {
             queryParams: { order: 'popular', filter: 'new' },
           }
         }
       ]
-    },
+    }
 
   ];
   config = {
     paddingAtStart: true,
     interfaceWithRoute: true,
     classname: 'my-custom-class',
-   // listBackgroundColor: `rgb(208, 241, 239)`,
+    //listBackgroundColor: `rgb(208, 241, 239)`,
     fontColor: `rgb(8, 54, 71)`,
-   // backgroundColor: `rgb(208, 241, 239)`,
+    //backgroundColor: `rgb(208, 241, 239)`,
     selectedListFontColor: `blue`,
     highlightOnSelect: true,
     collapseOnSelect: true,

@@ -6,6 +6,7 @@ import { AdminComponent } from './_components/admin/admin.component';
 import { ExpertComponent } from './_components/expert/expert.component';
 import { ChercheurComponent } from './_components/chercheur/chercheur.component';
 import { AuthGuard } from './_guards';
+import { ProfileComponent } from './_components/profile/profile.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'expert', component: ExpertComponent },
   { path: 'chercheur', component: ChercheurComponent },
+  { path: 'profile', component: ProfileComponent },
 
 
 

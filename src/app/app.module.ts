@@ -25,6 +25,9 @@ import { ExpertComponent } from './_components/expert/expert.component';
 import { ChercheurComponent } from './_components/chercheur/chercheur.component';
 import { AdminComponent } from './_components/admin/admin.component';
 import { NgMaterialMultilevelMenuModule } from 'ng-material-multilevel-menu';
+import { ProfileComponent } from './_components/profile/profile.component';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import {MatInputModule} from "@angular/material";
 
 
 @NgModule({
@@ -37,7 +40,9 @@ import { NgMaterialMultilevelMenuModule } from 'ng-material-multilevel-menu';
     ExpertComponent,
     ChercheurComponent,
     AdminComponent,
-    ListEmployeesComponent,
+    ProfileComponent,
+
+
 
     
   
@@ -59,7 +64,9 @@ import { NgMaterialMultilevelMenuModule } from 'ng-material-multilevel-menu';
     MatListModule,
     HttpClientModule,
     RouterModule,
-    NgMaterialMultilevelMenuModule
+    MatInputModule,
+    NgMaterialMultilevelMenuModule,
+    OAuthModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

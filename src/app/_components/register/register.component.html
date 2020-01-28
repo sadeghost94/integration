@@ -7,11 +7,10 @@
     </mat-card-header>
 
 
+    <mat-form-field >
 
-      <mat-form-field appearance="outline" style="width: 30%;">
-        <mat-label>First name</mat-label>
-        <input #firstname matInput placeholder="First name" color="primary"  >
-      </mat-form-field>
+        <input #firstname matInput placeholder="First name"  color="primary"  >
+    </mat-form-field>
       <mat-form-field appearance="outline" style="width: 30%;">
         <mat-label>Middle name</mat-label>
         <input #middlename matInput placeholder="Middle name" color="primary"  >
@@ -30,18 +29,10 @@
 
         <mat-form-field  appearance="outline">
           <mat-label>Profil</mat-label>
-          <select #profile  matNativeControl required>
-             <option
-                value = "admin" >
-                Administrateur
-             </option>
-             <option
-                value = "expert">
-                Expert
-             </option>
-             <option
-                value = "searcher">
-                Chercheur
+          <select #profile  matNativeControl  ngModel="" >
+             <option *ngFor="let p of profilelist"
+                     [value]="p.role" >
+                {{p.name}}
              </option>
             </select>
         </mat-form-field>
@@ -66,7 +57,7 @@
             [ngClass]="{ 'is-invalid': submitted && f.adresse.errors }">
           </mat-form-field>-->
 
-      <mat-form-field appearance="outline" >
+    <mat-form-field appearance="outline" >
       <mat-label>Institution code</mat-label>
       <input #institutionCode matInput placeholder="Institution code">
     </mat-form-field>
@@ -131,7 +122,7 @@
       postalCode.value,
       province.value,
       street.value,
-      streetNumber.value)" color="accent" class="btn-block">Enregistrer
+      streetNumber.value)" color="primary" class="btn-block">Enregistrer
         <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAA
         AAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
       </button>

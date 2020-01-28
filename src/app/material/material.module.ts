@@ -46,7 +46,8 @@ const MaterialComponents = [
   MatPaginatorModule,
   MatNativeDateModule,
   MatTabsModule,
-  MatMenuModule
+  MatMenuModule,
+  MatCheckboxModule
 
 
 

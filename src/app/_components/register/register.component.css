@@ -3,7 +3,7 @@ body{background-image:url(https://lh4.googleusercontent.com/-XplyTa1Za-I/VMSgIyA
 .register-wrapper{height:100%;  position: absolute;}
 .box{position:absolute;width:100%;max-width:30em;}
 
-.register-wrapper .mat-stroked-button{border:1px solid currentColor;line-height:54px;background:#FFF7FA; width: 100%;}
+.register-wrapper .mat-stroked-button{border:1px solid currentColor; width: 100%;}
 .register-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix{padding:0.8375em 0;}
 register-wrapper .mat-form-field { width: 100%;}
 

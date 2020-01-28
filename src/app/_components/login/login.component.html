@@ -9,7 +9,7 @@
     <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="example-form">
       <mat-card-content>
         <mat-form-field class="example-full-width">
-          <input formControlName="username"  matInput placeholder="Username" formControlName="username"
+          <input  style="font-weight: bold; font-size: medium;" formControlName="username"  matInput placeholder="Username" formControlName="username"
           [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
         </mat-form-field>
         <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
@@ -36,6 +36,6 @@
      
      
     </form>
-    <a   href="https://angular.io/tutorial/toh-pt6">Mot de passe oublié ?</a>
+    <a   href="">Mot de passe oublié ?</a>
   </mat-card>
   </div>

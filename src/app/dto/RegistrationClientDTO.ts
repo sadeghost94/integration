@@ -14,10 +14,10 @@ export class RegistrationClientDTO{
   lastName: String;
   middleName : String;
   institutionDto:	InstitutionDto;
-  profile : Profile;
+  profile : string;
 
 
-  constructor(accountDto: AccountDto, birthday: string, emailDto: EmailDto, firstName: String,middleName: String, lastName: String, institutionDto: InstitutionDto, profile: Profile,addressDto) {
+  constructor(accountDto: AccountDto, birthday: string, emailDto: EmailDto, firstName: String,middleName: String, lastName: String, institutionDto: InstitutionDto, profile: string,addressDto) {
     this.accountDto = accountDto;
     this.birthday = birthday;
     this.emailDto = emailDto;

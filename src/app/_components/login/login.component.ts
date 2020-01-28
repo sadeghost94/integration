@@ -13,7 +13,7 @@ import {log} from "util";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+ is_admin : boolean = false;
   loginForm: FormGroup;
   loading = false;
   submitted = false;

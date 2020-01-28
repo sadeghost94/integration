@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fitbitinter';
-  is_admin : boolean = true;
+  is_admin : boolean = false;
 }
